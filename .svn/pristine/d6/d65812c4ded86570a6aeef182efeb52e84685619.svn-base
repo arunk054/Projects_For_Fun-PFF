@@ -1,0 +1,172 @@
+	<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+ <style>
+ .ee{
+
+	margin-bottom: 2em;
+ }
+ .drop{
+display:none;
+ }
+ </style>
+
+  <script>
+  $(document).ready(function() {
+   // $("ul").menu().css('border-style','none');
+	    $("select").menu();
+	$('#button').button();
+	//$('a').button().css('border-style','none');
+//	$('body').hide();
+	$('#head1').mouseover(function(){
+        $(this).addClass('ui-state-active');
+		$(this).css('cursor','pointer');
+    }).mouseout(function(){
+        $(this).removeClass('ui-state-active');
+
+    }).click(function(){
+
+    });
+
+	$('#test1').mouseover(function(){
+		console.log('over');
+		$(this).addClass('ui-widget ui-widget-content ui-state-hover');
+	}).mouseout(function(){
+		$(this).removeClass('ui-state-hover');
+	});
+
+	$('#sample').mouseover(function(){
+        $(this).addClass('ui-state-active');
+				$(this).css('cursor','default');
+    }).mouseout(function(){
+        $(this).removeClass('ui-state-active');
+    }).click(function(){
+    });
+	$('.showing').click(function(){
+	//if visible then make it invisible
+	var drop = $('.drop');
+
+	if (drop.css('display')=='none')
+	{
+		drop.slideDown(600);
+	} else {
+		drop.slideUp(300);
+	}
+
+   });
+
+	$('.drop').click(function(){
+		$('.drop').slideUp(300);
+	});
+
+	var u = document.createElement('ul');
+	var l = document.createElement('li');
+	var a = document.createElement('a');
+	a.innerHTML = "jh links das";
+	a.style['margin']='0 0 1em 0';
+	l.appendChild(a);
+	u.appendChild(l);
+
+	l = document.createElement('li');
+	a = document.createElement('a');
+	a.innerHTML = "ln 2";
+		a.style['margin']='0 0 1em 0';
+	l.appendChild(a);
+	u.appendChild(l);
+	document.body.appendChild(u);
+	$(u).menu();
+
+
+
+  });
+
+
+  		function all(re){
+		console.log(re);
+			$('div').addClass('ui-state-active');
+		}
+
+		setTimeout (function() {
+console.log('a');
+},11000);
+  </script>
+</head>
+<body >
+
+
+<div>
+India vs Australia
+</div>
+
+<div class='ui-widget ui-widget-content'>  </div>
+<div id='sortContainer'>
+<ul id='sort1'>
+<li class='showing'>
+<a href='#'>item 1</a>
+</li >
+<li class='drop'>
+<a href='#'>item 1</a>
+</li>
+<li class='drop'>
+<a href='#'>item 2</a>
+</li>
+
+<li class='drop'>
+<a href='#'>item 4</a>
+</li>
+
+</ul>
+</div>
+
+<select>
+<option>aa</option>
+<option>bb</option>
+<option>cc</option>
+</select>
+
+
+  <ul>
+
+  <li><a href="#" class="ee">Ada</a></li>
+    <li><a href="#" class="ee">Ada</a></li>
+	  <li><div class="ee"><a href="#"><div>Ada</div></a></div></li>
+    <li><div class="ee"><a href="#">asdfasdasd asdaddasd dasd wer  klj </a></div></li>
+<li><div class="ui-widget "><a href="#">asdfasdasd asdaddasd dasd wer  klj </a></div></li>
+
+</ul>
+
+<div  id='head1' style='clear:both;padding:00px;text-align:center;width:10%;height:5%;' class="ui-widget ui-widget-header">
+
+dasdasd 
+			<span style="font-size:1em"><strong>Etiam </strong></span>libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede
+</div>
+
+
+<div style='display:inline-block;padding:1em;text-align:center' id='sample' class="ui-widget ui-widget-header">
+
+some text
+</div>
+
+
+			<button id="button" style="display:table-caption" class="ui-widget ui-widget-content ui-icon">A button element</button>
+<a href="#" class="ui-widget ui-widget-content ui-state-default ui-icon-arrow-1-ne">Adelphi</a>
+
+
+<div class="ui-widget ui-widget-content ui-state-highlight ui-corner-all" style="border-width:2px" >new text s
+
+</div>
+
+
+<a alt='post' id = 'test1' style='border:solid 1px'>
+<span class='ui-state-highlight'>hello</span> world
+</a>
+
+<div title="A bold text">
+hello world 2
+</div>
+
+</body>
+</html>

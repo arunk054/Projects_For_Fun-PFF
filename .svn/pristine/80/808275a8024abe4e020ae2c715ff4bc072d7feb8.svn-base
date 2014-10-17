@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<title>Predicket</title>
+<!-- other css themes are -->
+<!--  ui-lightness redmond  dot-luv excite-bike sunny flick smoothness humanity -->
+<!-- more at http://blog.jqueryui.com/2011/02/jquery-ui-1-8-10/ -->
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/CricFB.js"></script>
+<script type="text/javascript" src="js/InitialUI.js"></script>
+<script type="text/javascript" src="js/Match.js"></script>
+<script type="text/javascript" src="js/Predicket.js"></script>
+
+</head>
+<body>
+<div id="fb-root"></div>
+<script>
+CricFB.loadFacebookSDK("fb-root");
+</script>
+<div id="header">
+<table style='width:100%'>
+<tr>
+<td id="left-header"><div id = "logo-text">Predicket<span id='version'> [ Beta ]</span></div>
+
+<div id="slogan">Have fun predicting live cricket scores!</div>
+</td>
+
+<td id="right-header">
+
+</td>
+<td style='vertical-align:bottom'>
+<span id="header-links" ><a class="links" id="link1" href="javascript:InitialUI.getInvFriendsDialog()" style='font-size:0.75em;'>Challenge Friends</a>
+<a class="links" href="javascript:" style='font-size:0.75em;'>Options&nbsp;<span class="ui-icon ui-icon-circle-triangle-s" style="float: right; margin: '0em 0em 0em 0em';"></span></a>
+<a  class="links" href="javascript:" style='font-size:0.75em;'>Help</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="fb-login-button-div">
+<b>Welcome to Predicket,</b><br><br>
+<span style="font-style:italic;line-height:1.5em">Play exciting games while watching live cricket scores. Use your strategies to compete with friends and win points. So, get ready to sharpen your cricketing skills now...
+ </span> 
+<br><br>
+<span style="font-family: 'Times New Roman',sans-serif;font-size:1.3em;line-height:1.5em">Please click on the login button to start using this application:
+<fb:login-button show-faces="false"></fb:login-button></span>
+</div>
+<!-- For friend invite see : http://stackoverflow.com/questions/820421/can-i-use-facebooks-fbfriend-selector-in-an-iframe 
+http://stackoverflow.com/questions/1781973/facebook-connect-displaying-invite-friends-dialog-and-closing-on-completion
+http://www.udjamaflip.com/general-development/49-placing-fbmulti-friend-selector-friend-invite-form-into-an-fbdialog-facebook-popup.html
+
+** imp ** http://mike.brevoort.com/2010/08/10/introducing-the-jquery-facebook-multi-friend-selector-plugin/index.html
+
+http://www.berecursive.com/2010/facebook/facebook-fbmultifriendselector-in-iframe
+
+ <fb:serverFbml style="width: 584px;">
+    <script type="text/fbml">
+        <fb:fbml>
+            <fb:request-form action="http://facebook.yoz.sk/testapp/invite_callback.html" method="POST" invite="true" type="TestApp"
+                content="Join my app &lt;fb:req-choice url=&quot;http://www.yoz.sk/phpinfo.php&quot; label=&quot;Go Test app&quot; /&gt;">
+                <fb:multi-friend-selector max="1" cols="3" rows="3" showborder="true" actiontext="Invite your friends to use Test app."/>
+            </fb:request-form>
+        </fb:fbml>
+    </script>
+</fb:serverFbml>
+-->
+
+<div id="global-container">
+<div id="points-header" class="ui-widget ui-widget-header">
+<div id="points"></div>
+
+<span id='gameModes'>Game Mode:  
+<input class='modeSelect' type='radio' name='modes' checked='checked' value='Single Player' id='singlePlayer'/><label for='singlePlayer'>Single Player</label>
+<input class='modeSelect' type='radio' name='modes' value='Two Player' id='twoPlayer'/><label for='twoPlayer'>Two Player</label>
+</span>
+
+</div>
+<div id="leftPane">
+<ul>
+<li><a class = 'tabHeadLeft' href='#matches'>Select Match</a></li>
+</ul>
+<div  class = 'tabContent' id="matches">
+
+</div>
+</div>
+<!-- Current Bets, Recent Bets, Live Feed, Standings -->
+<div id="rightPane">
+<ul>
+<li><a class = 'tabHead' href='#mine'>My Predickets</a></li>
+<li><a class = 'tabHead' href='#challenges'>Challenges</a></li>
+<li><a class = 'tabHead' href='#feed'>Live Feed</a></li>
+</ul>
+<div class = 'tabContentRight' id="mine">
+<div id='myList'>
+
+</div>
+</div>
+<div  class = 'tabContentRight' id="feed">Coming Soon...</div>
+<div   class = 'tabContentRight' id="challenges">Coming Soon...</div>
+</div>
+</div>
+<div style='margin-left:1em'>
+<div id='contact'>
+&copy;2011 Arun Kalyanasundaram. [<a href="mailto:arun.kalyan.sundaram@gmail.com">Email</a>]
+</div>
+<div style="font-style:italic;font-family:'Times New Roman';font-size:0.8em">Use Google Chrome for faster performance.</div>
+</div>
+<div id='footer'>
+
+</div>
+
+<div id='successPost' title='Post Successful' style='display:none'>
+<p>Your post has been successfully published on your wall.</p>
+</div>
+
+<div id='failedPost' title='Post Failed' style='display:none'>
+<p>Post could not be published. Please check your login status or refresh the page and try again.</p>
+</div>
+
+<div id='invFriends' title='Challenge Friends' style='display:none'>
+<p>Coming Soon...</p>
+</div>
+
+</body>
+</html>

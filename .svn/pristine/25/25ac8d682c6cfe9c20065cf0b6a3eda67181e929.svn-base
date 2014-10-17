@@ -1,0 +1,87 @@
+package gaptest;
+
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.jdo.PersistenceManager;
+import javax.jdo.Query;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.User;
+import twitter4j.http.AccessToken;
+import twitter4j.http.RequestToken;
+
+public class TwitterCallbackServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Twitter twitter = (Twitter) request.getSession().getAttribute("twitter");
+        RequestToken requestToken = (RequestToken) request.getSession().getAttribute("requestToken");
+        String verifier = request.getParameter("oauth_verifier");
+        User tUser = null;
+        try {
+        	AccessToken accessToken = twitter.getOAuthAccessToken(requestToken, verifier);
+        	//System.out.println("tk = "+accessToken.getToken());
+        	//System.out.println("sc = "+accessToken.getTokenSecret());
+            tUser = twitter.verifyCredentials();
+            if (tUser == null) {
+            	throw new ServletException();
+            }
+            
+            //Check if the user is already present in the database
+            PersistenceManager pm=null;
+            try {
+				pm = PMFactory.get().getPersistenceManager();
+				Query q = pm.newQuery("select from "+UserData.class.getName()+" where userId == userIdParam parameters int userIdParam");
+				List<UserData> userInDB = (List<UserData>)q.execute(tUser.getId());
+				if (userInDB == null || userInDB.size() == 0) {
+				    //User is not thre, so save to DB
+				    UserData ud = new UserData(accessToken.getToken(), accessToken.getTokenSecret(), tUser.getId(),tUser.getName());
+				    pm.makePersistent(ud);	
+				} else if (userInDB.size() == 1){
+					//Already in DB, Check if the access Token matches
+					UserData prevUser = userInDB.get(0);
+					if (accessToken.getToken().equals(prevUser.getToken()) && accessToken.getTokenSecret().equals(prevUser.getTokenSecret())) {
+						throw new IllegalStateException();
+					} else {
+						prevUser.setToken(accessToken.getToken());
+						prevUser.setTokenSecret(accessToken.getTokenSecret());
+						prevUser.setUserRealName(tUser.getName());
+					}
+				} else {
+					//Size greater than 1, so delete all and insert new
+					pm.deletePersistentAll(userInDB);
+					UserData ud = new UserData(accessToken.getToken(), accessToken.getTokenSecret(), tUser.getId(),tUser.getName());
+					pm.makePersistent(ud);
+				}
+			} finally{
+				pm.close();
+			}
+            request.getSession().setAttribute("regName",tUser.getName());
+            //Avoid tweeting unnecessarily
+            //twitter.updateStatus("updating "+verifier); 
+            
+        } catch (TwitterException e) {
+            request.getSession().setAttribute("TwitterError","Sorry! Twitter service is currently unavailable.<br>Please try again.");
+        } catch (IllegalStateException e) {
+        	String s = "";
+        	if (tUser != null) {
+        		s = "Hi "+tUser.getName()+",<br>";
+        	}
+            request.getSession().setAttribute("TwitterError",s+"You have already installed the app. Try signing in with a different twitter account.");
+        } catch (ServletException e) {
+            request.getSession().setAttribute("TwitterError","Error Authenticating user. Please try again.");
+        }finally {
+            request.getSession().removeAttribute("requestToken");
+            request.getSession().removeAttribute("twitter");        	
+        }
+        //Successfully Installed        
+        response.sendRedirect(request.getContextPath()+ "/registration.jsp");
+    }
+}

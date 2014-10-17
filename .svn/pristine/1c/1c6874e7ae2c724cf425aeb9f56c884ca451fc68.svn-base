@@ -1,0 +1,504 @@
+<!--
+WIDTH OF CANVAS: 760 pixels
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  </head>
+  <body>
+  <!-- After a kit if experiments I discovered that the asynchronous login is too slow. If it delays too much then I get errors in all functions since they do not exist, yet!
+  Possible solutions:
+  1) have a loop in every function to retry
+  2) function to be called only after checking if the all.js is fully loaded or after user intervention
+  -->
+    <div id="fb-root"></div>        <!--!!!do NOT delete this line!!!-->
+    <script>
+    /*
+      window.fbAsyncInit = function() {
+        FB.init({appId: 'xxxxxxxxxxxxxxxxxxx', status: true, cookie: true,
+                 xfbml: true});
+      };
+     (function() {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.src = document.location.protocol +
+          '//connect.facebook.net/en_US/all.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+        
+        //--- the function FB.getLoginStatus() is asychronous, this is a way to call it ---
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.src = "getLoginStatus.js";
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+      }());
+    */
+    </script>
+    
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+    try
+    {
+        FB.init(
+        {
+            appId: 'xxxxxxxxxxxxxxxxxxx',
+            status: true,
+            cookie: true,
+            xfbml: true
+        });
+        /*
+        auth.login
+        auth.logout
+        auth.sessionChange
+        auth.statusChange
+        To subscribe to any of the events, the FB.Event.subscribe method is to be used.
+        For example, the following code shows how to subscribe to the auth.login with the callback function defined.
+         var onAuthLogin = function(response)
+         {
+            // do something when the user log in
+         };
+        FB.Event.subscribe('auth.login', onAuthLogin);
+        */
+        
+        FB.Event.subscribe('auth.login', function(response)
+        {
+            makeLogoutButton();
+        });
+
+        FB.Event.subscribe('auth.logout', function(response)
+        {
+            makeLoginButton();
+        });
+    }
+    catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+    </script>
+    
+    <script>
+        function mylogin()
+        {
+            try
+            {
+                FB.login(function(response)
+                {
+                    if (response.session)
+                    {
+                        document.getElementById("mystatus").textContent = "user successfully logged in";
+                    }
+                    else
+                    {
+                        document.getElementById("mystatus").textContent = "user cancelled login";
+                    }
+                },{perms: 'publish_stream'});                                                           //here do not forget the extra permission you might need
+            }
+            catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+        };
+        function mylogout()
+        {
+            try
+            {
+                FB.logout(function(response)
+                {
+                    document.getElementById("mystatus").textContent = "user successfully logged out";
+                });
+            }
+            catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+        };
+        
+        function makeLoginButton()
+        {
+            document.getElementById('fbButtonImg').src ="http://developers.facebook.com/images/devsite/login-button.png";
+            document.getElementById('fbButtonPh').href = "javascript:mylogin()";
+        }
+        function makeLogoutButton()
+        {
+            document.getElementById('fbButtonImg').src ="http://www.cookwithcampbells.ca/ecms.ashx/en-ca/Facebook-Logout.gif";
+            document.getElementById('fbButtonPh').href = "javascript:mylogout()";
+        }
+    </script>
+    
+<!--
+    <script>
+        function publishPost()
+        {
+            try
+            {
+                //with very similar way as in php this javascript code to post a message on a wall
+                var toMinima =
+                {
+                    method: 'stream.publish',           //this line must be included extra (in php is not necessary)
+                    //method: 'status.set',      //WARNING: we should try this sometime
+                    message: document.getElementById("tt").value,
+                    //name: "This is the title of my post",
+                    //link: "http://blogs.canalplan.org.uk/steve/2010/04/28/hitting-a-moving-target/",
+                    //description: "this is the body of the post with lots of wiffly woffly text in it, lets see if this all works ok!",
+                    //picture: "http://blogs.canalplan.org.uk/steve/files/2009/12/13742_1291940983817_1389037839_836473_2130235_n.jpg",
+                    //caption: 'Caption of the Post',
+                    
+                    //there is a known bug for the below "actions" code and therefore will be ignored, do not use it
+                    //actions : { name : 'Start Learning', link : 'http://www.takwing.idv.hk/tech/fb_dev/index.php'} //this I guess could be the same as the callback url in php
+                };
+                
+                FB.api('/me/feed', 'POST', toMinima, function(response)
+                {
+                    document.getElementById('mystatus').innerHTML = 'A post has just been published into the stream on your wall.';
+                });
+            }
+            catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+        }
+    </script>
+-->
+    
+    
+    <h1>Javascript SDK Training</h1>
+    
+    <h2 id="bossmsg" style="display: none;">you are the boss</h2>
+    
+    <a id="fbButtonPh">
+        <img id="fbButtonImg" width="154" height="23" border="0" src="http://placehold.it/154x23" />
+    </a>
+    <div id="mystatus"></div>
+    
+    <!--
+<form id="postonwall">
+        <label for="tt">Status update using Javascript SDK</label><br />
+        <textarea id="tt" name="tt" cols="50" rows="2">Write your status here and click the button</textarea>
+        <br />
+        <input onclick="publishPost()" type="button" value="click to update status" />
+    </form>
+-->
+    
+    <!--
+    Edo exoume ena like button se iframe
+    -->
+<!--
+    <div id="likeIFRAME">    
+        <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fapps.facebook.com%2Ffbjstraining%2F&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=recommend&amp;colorscheme=light&amp;height=21" 
+        scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+    </div>
+-->
+    
+<!--
+    <div id="likeXFBML">
+        Edo exoume ena like button se XFBML
+        
+        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+        <fb:like href="http://apps.facebook.com/fbjstraining/" layout="button_count" show_faces="false" width="450" action="recommend"></fb:like>
+    </div>
+-->
+    
+    <!--
+<script>
+        var callbackFunc = function(response)
+        {
+            document.writeln(response.name);
+        }
+        FB.api("/me",callbackFunc);
+    </script>
+-->
+    
+    <!--
+<div id="simpletable"></div>
+    <script>
+        try
+        {
+            var friend_div = document.getElementById("simpletable");
+            //friend_div.setInnerXHTML("<table border='1'><tr><th>Name</th><th>Network</th></tr></table>");
+            //friendDiv.setStyle('margin', '0');
+            friend_div.innerHTML = "<table border='1'><tr><th>Name</th><th>Network</th></tr></table>";
+        }
+        catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+    </script>
+-->
+    
+    <!--
+<div id="myFriendList"></div>
+    <script>
+    /***************(as far as i understand) BOTH FBML and XFBML will be DEPRECATED soon (correct me if i'm wrong)************************
+    var callbackFunc = function(response)
+    {
+        var outstring = '<p>Friends:</p>';
+        for (var i=0; i<response.data.length; i++)
+        {
+            var friend = response.data[i];
+            outstring = outstring +
+            '<fb:profile-pic uid="' + friend.id + '"  width="50" height="50" />' 
+            + '<fb:name uid="' + friend.id + '" />&nbsp;&nbsp;&nbsp;';
+       }
+       document.getElementById('myFriendList').innerHTML = outstring; 
+    };
+    ************************************************************/
+    var callbackFunc = function(response)
+    {
+        var outstring = '<p>Friends:</p>';
+        for (var i=0; i<response.data.length; i++)
+        {
+            //var image =
+            outstring = outstring + "<img src='" + response.data[i].picture + "' />"; 
+            //document.writeln(image);
+        }
+       document.getElementById('myFriendList').innerHTML = outstring; 
+    };
+    
+    FB.api('/me/friends', { fields : 'id,picture', offset : 15, limit : 25 }, callbackFunc);
+    </script>
+-->
+    
+    <!--
+    The below division is a way to call the old fbml through the new xfbml
+    -We should declare the object xfbml
+    -and then we must write a script object of the type "text/fbml"
+    -inside that script we are free to write fbml code
+    -->
+    <!--
+<div id="invite_form">
+     <fb:serverFbml>
+       <script type="text/fbml">
+         <fb:fbml>
+            <fb:request-form
+                 action='http://pligor.com/fbjs/index.php'
+                 method='POST'
+                 type='eLearning'
+                 content="Let's learn Facebook App Development
+                         <fb:req-choice url='http://pligor.com/fbjs/index.php' label='Register'/>"
+                 <fb:multi-friend-selector actiontext="Select your IT friends.">
+                 </fb:multi-friend-selector>
+            </fb:request-form>
+          </fb:fbml>
+       </script>
+     </fb:serverFbml>
+    </div>
+-->
+    
+    
+    <!--
+<script>
+        /*
+        Animate Transformable Element
+        
+        Note: only pixel, point, %, and opacity values are animate-able
+
+        * @param dom {DOMElement} the element to be animated
+        * @param props {Object} an object with the properties of the animation destination
+        * @param duration {Number} the number of milliseconds over which the animation should happen.
+        * @param callback {Function} the callback function to call after the animation is complete
+        
+        */
+        function grower()
+        {
+            try
+            {
+                FB.Anim.ate
+                (
+                    document.getElementById("divdiv"),
+                    //{ width: message.width + 'px' },    //this way you get some other's objects properties
+                    { width: '400px', height: '250px' },  //let's watch the border to grow
+                    3000,   //milliseconds
+                    function() {}   //callback function if you would like to have an action after this animation. maybe another animation ;)
+                );
+            }
+            catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+            return false;
+        }
+    </script>
+    <div id="divdiv" style="width:100px; height:100px; border: thick black solid;" >
+        <a id="aa" href="#" onclick="grower()" >
+            <span id="spanspan" style="font-size: 14px;">
+                Watch me grow with a single click!
+            </span>
+        </a>
+    </div>
+-->
+    
+<!--
+    <div id="ajaxUpDiv">
+        <h2>Let AJAX change this upper text</h2>
+    </div>
+    <div id="ajaxDownDiv">
+        <h3>Let AJAX change this downer text</h3>
+    </div>
+    <button type="button" onclick="loadXMLDoc()">Change Content</button>
+-->
+    <br />
+    Search for girls:
+    <input id="girls" onkeyup="getSugs(this.value)" />
+    <br />
+    <p>
+        Suggestions: 
+        <div id="girlsDiv"></div>
+    </p>
+    
+    <script type="text/javascript">
+        
+        var xmlhttpArray = new Array(); //global
+        
+        function ajaxGo(id,url,params)
+        {
+            params = params || "";  //method to define default values in a javascript function parameter
+            try
+            {
+                xmlhttpArray[id] = new XMLHttpRequest();    //by default creating an associative array (remember in javascript there are no real associative arrays)
+                var xmlhttp = xmlhttpArray[id];
+                xmlhttp.open("POST",url,true);  //true means async, false means synchronously
+                xmlhttp.send(params);
+            }
+            catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+            
+            return xmlhttp;
+        }
+    </script>
+    
+    
+    <script>
+        function getSugs($letter)
+        {
+            try
+            {
+                var xmlhttpID = Math.random().toString();
+                var response =  ajaxGo(xmlhttpID,'girls.php',"fname=Henry&lname=Ford");
+                response.onreadystatechange = function ()
+                {
+                    //readyState: 0: request not initialized, 1: server connection established, 2: request received, 3: processing request, 4: request finished and response is ready
+                    //status (and statusText): 200: "OK", 404: Page not found
+                    var xmlhttp = xmlhttpArray[xmlhttpID];          //we still need to do more thorough testing if the xmlhttpID is not affected by other asynchronous calls
+                    if(xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                        //delete xmlhttpArray[xmlhttpID];
+                        document.getElementById("girlsDiv").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                
+            }
+            catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+        }
+    
+    </script>
+        
+        
+        
+<!--
+    <script>
+        var ids = new Array();
+        
+        function loadXMLDoc()
+        {
+            //CONGRATULATION IT IS WORKING AS IT SHOULD !!!!
+            
+            //loadXMLupDoc('ajaxUp.txt');
+            //setTimeout("loadXMLdownDoc('ajaxDown.txt')",4000);
+            
+            loadXMLdownDoc('ajaxDown.txt');
+            setTimeout("loadXMLupDoc('ajaxUp.txt')",4000);
+            
+            document.getElementById("mystatus").innerHTML = "up: " + ids['up'] + "<br/>" + "down: " + ids['down'];
+        }
+
+        function loadXMLupDoc(doc)
+        {
+            var test = 'local scope';
+            try
+            {
+                var xmlhttpID = Math.random().toString();
+                //if(typeof(a) != "undefined") //we are going to need an "if", if we want to get the results only once, in that case DO NOT remove the array
+                var response =  ajaxGo(xmlhttpID,doc);
+                response.onreadystatechange = function ()
+                {   /*
+                    readyState:
+                        0: request not initialized
+                        1: server connection established
+                        2: request received
+                        3: processing request
+                        4: request finished and response is ready
+                    status: (and statusText)
+                        200: "OK"
+                        404: Page not found
+                    */
+                    var xmlhttp = xmlhttpArray[xmlhttpID];          //we still need to do more thorough testing if the xmlhttpID is not affected by other asynchronous calls
+                    if(xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                        //delete xmlhttpArray[xmlhttpID];
+                        document.getElementById("ajaxUpDiv").innerHTML =
+                            xmlhttp.responseText +
+                            "<br/>" +
+                            xmlhttpID
+                        ;
+                    }
+                };   
+            }
+            catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+            
+            ids['up'] = xmlhttpID;
+        }
+        
+        function loadXMLdownDoc(doc)
+        {
+            var test = 'local scope';
+            try
+            {
+                var xmlhttpID = Math.random().toString();
+                //if(typeof(a) != "undefined") //we are going to need an "if", if we want to get the results only once, in that case DO NOT remove the array
+                var response =  ajaxGo(xmlhttpID,doc);
+                response.onreadystatechange = function ()
+                {   /*
+                    readyState:
+                        0: request not initialized
+                        1: server connection established
+                        2: request received
+                        3: processing request
+                        4: request finished and response is ready
+                    status: (and statusText)
+                        200: "OK"
+                        404: Page not found
+                    */
+                    var xmlhttp = xmlhttpArray[xmlhttpID];          //we still need to do more thorough testing if the xmlhttpID is not affected by other asynchronous calls
+                    if(xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                        //delete xmlhttpArray[xmlhttpID];
+                        document.getElementById("ajaxDownDiv").innerHTML =
+                            xmlhttp.responseText +
+                            "<br/>" +
+                            xmlhttpID
+                        ;
+                    }
+                };    
+            }
+            catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+            
+            ids['down'] = xmlhttpID;
+        }
+    </script>
+-->
+
+    <!--
+    this script always at the bottom
+    -->
+    <script>
+        try
+        {
+            session = FB.getSession();
+            if (session)
+            {
+                document.getElementById("mystatus").textContent = "logged in and connected user, someone you know";
+                makeLogoutButton();
+                if (session["uid"] == "000000") //error. normally here there is a valid user id
+                {
+                    document.getElementById("bossmsg").style.display = "block";
+                }
+            }
+            else
+            {
+                document.getElementById("mystatus").textContent = "no user session available, someone you dont know";
+                makeLoginButton();
+            }
+        }
+        catch(e) { alert("Exception-> Error name: " + e.name + ". Error message: " + e.message); }
+    </script>
+    
+    <script>
+        //FB.XFBML.parse(document.getElementById("likebutton"));
+        FB.XFBML.parse();
+    </script>
+  </body>
+</html>

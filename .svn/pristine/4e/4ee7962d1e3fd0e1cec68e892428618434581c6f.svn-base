@@ -1,0 +1,78 @@
+package gaptest;
+
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+import com.google.appengine.api.datastore.Key;
+
+@PersistenceCapable
+public class UserData {
+
+	public UserData(String token, String tokenSecret, int userId, String realName) {
+		this.token = token;
+		this.tokenSecret = tokenSecret;
+		this.userId = userId;
+		this.userRealName = realName;
+	}
+	
+    public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	@PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    private Key key;
+    
+    @Persistent
+    private String token;
+    
+    @Persistent
+    private String tokenSecret;
+    
+    @Persistent
+    private int userId;
+    
+    //Can remove the userName, since it can be retrieved from the tokens
+    
+    @Persistent
+    private String userRealName;
+
+	public Key getKey() {
+		return key;
+	}
+
+	public void setKey(Key key) {
+		this.key = key;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public String getTokenSecret() {
+		return tokenSecret;
+	}
+
+	public void setTokenSecret(String tokenSecret) {
+		this.tokenSecret = tokenSecret;
+	}
+
+	public String getUserRealName() {
+		return userRealName;
+	}
+
+	public void setUserRealName(String userRealName) {
+		this.userRealName = userRealName;
+	}
+
+}

@@ -1,0 +1,179 @@
+body {
+	font: 14px/170% 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+	color: #666666; 	
+	margin: 0; 
+	padding: 0; 
+	background: #FFF
+	text-align: center;
+}
+#header {
+	position: relative;
+	margin: 0 auto;
+	height: 150px;		
+}
+#header h1#logo-text { margin: 0; padding: 0; }
+#header h1#logo-text a {
+	position: absolute; 
+	margin: 0; padding: 0 5px 0 0;
+	font: bold 62px 'Trebuchet MS', 'Helvetica Neue', Arial, Sans-Serif;  
+	letter-spacing: -5px;
+	color: #1980AF;	
+	text-decoration: none;
+		
+	/* change the values of top and left to adjust the position of the logo*/
+	top: 30px; left: 30px;	
+}
+#header h1#logo-text a:hover { border: none; }
+#header p#slogan {
+	position: absolute;
+	margin: 0; padding:  0 5px 0 0;
+	font-family: Georgia, 'Times New Roman', Times, serif;;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 1.8em;
+	font-style: italic;
+	letter-spacing: -.3px;
+	color: #999;	
+	
+	/* change the values of top and left to adjust the position */
+	top: 102px; left: 32px;		
+}
+
+#featured {
+	clear: both;
+	background: #F8FAFD; 
+	border: 1px solid #DCF1FB;
+	margin: 0px 0 10px 30px;
+	padding-bottom: 10px;
+
+
+}
+#featured h2 {
+	font: normal 2.2em Georgia, 'Times New Roman', Times, Serif;
+	color: #295177;
+	letter-spacing: -1.5px;	
+	margin-bottom: 0;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #EBEBEB;	
+}
+#featured h2 a {
+	color: #295177;
+	border: none;	
+}
+
+#featured a.more-link {
+	background: #B4DB6F;
+	padding: 5px 10px 5px 10px;
+	margin-top: 15px;
+	color: #FFF;
+	text-decoration: none;
+	border: 1px solid #BADE7D;
+	text-transform: uppercase;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 20px;	
+/*	display: block;*/
+/*    float: left;*/
+}
+#featured a.more-link:hover {
+	background: #008EFD;
+	border-color: #007DE2;
+}
+input {     border: 1px solid #006; } 
+
+input {
+	background: #B4DB6F;
+	padding: 5px 10px 5px 10px;
+	margin-top: 5px;
+	color: #FFF;
+	text-decoration: none;
+	border: 1px solid #BADE7D;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 20px;
+}
+input:hover {
+	background: #008EFD;
+	border-color: #007DE2;
+}
+input:disabled{
+	background: #a0a0a0;
+	border-color: #007DE2;
+}
+#backgroundPopup{
+display:none;
+position:fixed;
+_position:absolute; /* hack for internet explorer 6*/
+height:100%;
+width:100%;
+top:0;
+left:0;
+background:#000000;
+border:1px solid #cecece;
+z-index:1;
+}
+#popupContact{
+display:none;
+position:fixed;
+_position:absolute; /* hack for internet explorer 6*/
+height:260px;
+width:410px;
+background:#FFFFFF;
+border:2px solid #cecece;
+z-index:2;
+padding:12px;
+font-size:13px;
+}
+#popupContact h1{
+text-align:left;
+color:#6FA5FD;
+font-size:22px;
+font-weight:700;
+border-bottom:1px dotted #D3D3D3;
+padding-bottom:2px;
+margin-bottom:20px;
+}
+#popupContactClose{
+font-size:18px;
+line-height:18px;
+right:6px;
+top:4px;
+position:absolute;
+color:#6fa5fd;
+font-weight:800;
+display:block;
+}
+a{
+cursor: pointer;
+text-decoration:none;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+ tfoot, thead, tr, th, td {
+vertical-align:baseline;
+}
+body{
+background:#fff none repeat scroll 0%;
+height:100%;
+}
+#popupContactClose1{
+	color: #295177;
+	border: none;	
+	background: #B4DB6F;
+	padding: 5px 10px 5px 10px;
+	margin-top: 15px;
+	color: #FFF;
+	text-decoration: none;
+	border: 1px solid #BADE7D;
+	text-transform: uppercase;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 20px;	
+
+}
+
+#popupContactClose1:hover {
+	background: #008EFD;
+	border-color: #007DE2;
+}

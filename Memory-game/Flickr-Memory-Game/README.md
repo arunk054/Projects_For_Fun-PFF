@@ -1,0 +1,1 @@
+The flickr API has changed,  so this one is not working. Check the Memory-Cricket-Game, its the same game but with photos from espy cricinfo instead of Flickr.

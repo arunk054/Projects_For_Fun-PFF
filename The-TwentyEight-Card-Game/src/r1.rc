@@ -1,0 +1,417 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon1.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "&Game"
+    BEGIN
+        MENUITEM "&New Game    CTRL+N",         ID_GAME_NEWGAME
+        MENUITEM "&Save Game   CTRL+S",         ID_GAME_SAVEGAME
+        MENUITEM "&Load Game   CTRL+L",         ID_GAME_LOADGAME
+        MENUITEM "E&xit                CTRL+X", ID_GAME_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Options         CTRL+O",     ID_VIEW_OPTIONS
+        MENUITEM "Game S&tats   CTRL+T",        ID_VIEW_GAMESTATS
+        MENUITEM "&Score            CTRL+V",    ID_VIEW_SCORE
+        MENUITEM "&Ponits Map    CTRL+P",       ID_VIEW_POINTSMAP
+        MENUITEM "C&redits           CTRL+R",   ID_VIEW_CREDITS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS DISCARDABLE 
+BEGIN
+    "L",            ID_GAME_LOADGAME,       VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_GAME_NEWGAME,        VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_VIEW_OPTIONS,        VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_VIEW_POINTSMAP,      VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_VIEW_CREDITS,        VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_GAME_SAVEGAME,       VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_VIEW_GAMESTATS,      VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_VIEW_SCORE,          VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_GAME_EXIT,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP2             BITMAP  DISCARDABLE     "Forest.bmp"
+IDB_BITMAP3             BITMAP  DISCARDABLE     "Metal Links.bmp"
+IDB_BITMAP4             BITMAP  DISCARDABLE     "Clouds.bmp"
+IDB_BITMAP1             BITMAP  DISCARDABLE     "untitled1.bmp"
+IDB_BITMAP5             BITMAP  DISCARDABLE     "bitmap5.bmp"
+IDB_BITMAP6             BITMAP  DISCARDABLE     "player1.bmp"
+IDB_BITMAP7             BITMAP  DISCARDABLE     "player2.bmp"
+IDB_BITMAP8             BITMAP  DISCARDABLE     "bitmap8.bmp"
+IDB_BITMAP9             BITMAP  DISCARDABLE     "cards\\010.bmp"
+IDB_BITMAP10            BITMAP  DISCARDABLE     "cards\\020.bmp"
+IDB_BITMAP11            BITMAP  DISCARDABLE     "cards\\030.bmp"
+IDB_BITMAP12            BITMAP  DISCARDABLE     "cards\\040.bmp"
+IDB_BITMAP13            BITMAP  DISCARDABLE     "cards\\050.bmp"
+IDB_BITMAP14            BITMAP  DISCARDABLE     "cards\\060.bmp"
+IDB_BITMAP15            BITMAP  DISCARDABLE     "cards\\070.bmp"
+IDB_BITMAP16            BITMAP  DISCARDABLE     "cards\\080.bmp"
+IDB_BITMAP17            BITMAP  DISCARDABLE     "cards\\090.bmp"
+IDB_BITMAP18            BITMAP  DISCARDABLE     "cards\\100.bmp"
+IDB_BITMAP19            BITMAP  DISCARDABLE     "cards\\110.bmp"
+IDB_BITMAP20            BITMAP  DISCARDABLE     "cards\\120.bmp"
+IDB_BITMAP21            BITMAP  DISCARDABLE     "cards\\130.bmp"
+IDB_BITMAP22            BITMAP  DISCARDABLE     "cards\\011.bmp"
+IDB_BITMAP23            BITMAP  DISCARDABLE     "cards\\021.bmp"
+IDB_BITMAP24            BITMAP  DISCARDABLE     "cards\\031.bmp"
+IDB_BITMAP25            BITMAP  DISCARDABLE     "cards\\041.bmp"
+IDB_BITMAP26            BITMAP  DISCARDABLE     "cards\\bitmap26.bmp"
+IDB_BITMAP27            BITMAP  DISCARDABLE     "cards\\061.bmp"
+IDB_BITMAP28            BITMAP  DISCARDABLE     "cards\\071.bmp"
+IDB_BITMAP29            BITMAP  DISCARDABLE     "cards\\081.bmp"
+IDB_BITMAP30            BITMAP  DISCARDABLE     "cards\\091.bmp"
+IDB_BITMAP31            BITMAP  DISCARDABLE     "cards\\101.bmp"
+IDB_BITMAP32            BITMAP  DISCARDABLE     "cards\\111.bmp"
+IDB_BITMAP33            BITMAP  DISCARDABLE     "cards\\121.bmp"
+IDB_BITMAP34            BITMAP  DISCARDABLE     "cards\\131.bmp"
+IDB_BITMAP35            BITMAP  DISCARDABLE     "cards\\012.bmp"
+IDB_BITMAP36            BITMAP  DISCARDABLE     "cards\\022.bmp"
+IDB_BITMAP37            BITMAP  DISCARDABLE     "cards\\032.bmp"
+IDB_BITMAP38            BITMAP  DISCARDABLE     "cards\\042.bmp"
+IDB_BITMAP39            BITMAP  DISCARDABLE     "cards\\052.bmp"
+IDB_BITMAP40            BITMAP  DISCARDABLE     "cards\\062.bmp"
+IDB_BITMAP41            BITMAP  DISCARDABLE     "cards\\072.bmp"
+IDB_BITMAP42            BITMAP  DISCARDABLE     "cards\\082.bmp"
+IDB_BITMAP43            BITMAP  DISCARDABLE     "cards\\092.bmp"
+IDB_BITMAP44            BITMAP  DISCARDABLE     "cards\\102.bmp"
+IDB_BITMAP45            BITMAP  DISCARDABLE     "cards\\112.bmp"
+IDB_BITMAP46            BITMAP  DISCARDABLE     "cards\\122.bmp"
+IDB_BITMAP47            BITMAP  DISCARDABLE     "cards\\132.bmp"
+IDB_BITMAP48            BITMAP  DISCARDABLE     "cards\\013.bmp"
+IDB_BITMAP49            BITMAP  DISCARDABLE     "cards\\023.bmp"
+IDB_BITMAP50            BITMAP  DISCARDABLE     "cards\\033.bmp"
+IDB_BITMAP51            BITMAP  DISCARDABLE     "cards\\043.bmp"
+IDB_BITMAP52            BITMAP  DISCARDABLE     "cards\\053.bmp"
+IDB_BITMAP53            BITMAP  DISCARDABLE     "cards\\063.bmp"
+IDB_BITMAP54            BITMAP  DISCARDABLE     "cards\\073.bmp"
+IDB_BITMAP55            BITMAP  DISCARDABLE     "cards\\083.bmp"
+IDB_BITMAP56            BITMAP  DISCARDABLE     "cards\\093.bmp"
+IDB_BITMAP57            BITMAP  DISCARDABLE     "cards\\103.bmp"
+IDB_BITMAP58            BITMAP  DISCARDABLE     "cards\\113.bmp"
+IDB_BITMAP59            BITMAP  DISCARDABLE     "cards\\123.bmp"
+IDB_BITMAP60            BITMAP  DISCARDABLE     "cards\\133.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_WELCOME DIALOGEX 0, 0, 142, 129
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Welcome"
+FONT 8, "Cowboys", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,112,12,24,14
+    PUSHBUTTON      "&Quit",IDCANCEL,112,30,24,14
+    GROUPBOX        "Enter Your Names",IDC_STATIC,7,6,103,53
+    LTEXT           "Player1",IDC_STATIC,17,23,29,9
+    LTEXT           "Player2",IDC_STATIC,17,43,29,9
+    EDITTEXT        IDC_PLAYER1,51,19,47,14,ES_UPPERCASE | ES_AUTOHSCROLL,
+                    WS_EX_DLGMODALFRAME
+    EDITTEXT        IDC_PLAYER2,51,39,47,14,ES_UPPERCASE | ES_AUTOHSCROLL,
+                    WS_EX_DLGMODALFRAME
+    CONTROL         "PLAYER1 Vs PLAYER2",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | BS_NOTIFY,12,82,80,10
+    CONTROL         "PLAYER1 Vs COMPUTER",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,12,98,86,10
+    GROUPBOX        "Select the Game Mode",IDC_STATIC,8,67,97,48
+END
+
+IDD_GETQUOTE DIALOGEX 120, 110, 141, 42
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Quote For Trump"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,84,19,35,14,NOT WS_TABSTOP
+    CTEXT           "ABCDEFGHIJKLMNO Enter Your Quote",IDC_STATIC1,2,5,135,
+                    11
+    EDITTEXT        IDC_QUOTE,20,19,40,14,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_STATICEDGE
+END
+
+IDD_CREDITS DIALOG DISCARDABLE  40, 25, 176, 83
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 12, "Times New Roman"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,0,71,174,9
+    CTEXT           "This game is built using Windows API functions and written entirely in C language. Interested junta!!, please mail to \n\n arun14j@yahoo.com\nor\nf2001726@bits-pilani.ac.in",
+                    IDC_STATIC,1,11,173,52
+    GROUPBOX        "The Team",IDC_STATIC,1,0,173,68
+END
+
+IDD_OPTIONS DIALOG DISCARDABLE  0, 0, 265, 170
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,208,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,208,24,50,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_BOTH | WS_TABSTOP,82,39,111,25
+    LTEXT           "Card Placement",IDC_STATIC,25,47,52,9
+    GROUPBOX        "Set Game Speed",IDC_STATIC,7,17,193,93
+    LTEXT           "Slow",IDC_STATIC,88,28,16,8
+    LTEXT           "Medium",IDC_STATIC,125,28,25,8
+    LTEXT           "Fast",IDC_STATIC,173,29,15,8
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_BOTH | WS_TABSTOP,79,74,111,25
+    LTEXT           "Card Dispatch",IDC_STATIC,25,82,48,9
+    GROUPBOX        "Set Winning Score",IDC_STATIC,7,119,194,34
+    EDITTEXT        IDC_MAXSCORE,98,132,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,119,132,10,14
+    LTEXT           "Maximun Score = ",IDC_STATIC,38,134,56,9
+END
+
+IDD_SCORE DIALOG DISCARDABLE  0, 0, 259, 237
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Score"
+FONT 8, "Times New Roman"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,237,6,15,224
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",
+                    PBS_VERTICAL | PBS_SMOOTH,8,6,18,224
+    GROUPBOX        "The Scores",IDC_STATIC,44,15,174,203
+    LTEXT           "",IDC_SCORES,64,68,137,117
+    LTEXT           "0",IDC_STATIC,32,224,8,9
+    LTEXT           "0",IDC_MAXDISPLAY,29,6,13,9
+END
+
+IDD_GAMESTATS DIALOG DISCARDABLE  0, 0, 193, 110
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Game Stats"
+FONT 10, "Due Date"
+BEGIN
+    GROUPBOX        "",IDC_STATIC,7,13,179,84
+    CTEXT           "",IDC_STATS,21,33,158,60
+    DEFPUSHBUTTON   "Game Stats",IDOK,18,10,166,14
+END
+
+IDD_POINTSMAP DIALOG DISCARDABLE  0, 0, 215, 110
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Points Map"
+FONT 14, "Shlop"
+BEGIN
+    LTEXT           "\n  A  =  1\n\n  2  =  10\n\n  3  =  5\n\n  9  =  2",
+                    IDC_STATIC,7,7,63,66
+    LTEXT           "NOTE: EVEN THOUGH 'A' AND '10', 'Q' AND 'K' HAVE\n     EQUAL POINTS 'A' AND 'K' HAVE THE UPPER-HAND",
+                    IDC_STATIC,7,82,201,21
+    DEFPUSHBUTTON   "OK",IDOK,85,10,20,64
+    LTEXT           "\n  10  =  1\n\n  J =    3\n\n  Q  =  0\n\n  K  =  0",
+                    IDC_STATIC,127,6,81,66
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_WELCOME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 135
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 122
+    END
+
+    IDD_GETQUOTE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 133
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 35
+    END
+
+    IDD_CREDITS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 174
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
+    END
+
+    IDD_SCORE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 230
+    END
+
+    IDD_GAMESTATS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_POINTSMAP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 208
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "ARUNOSOFT\0"
+            VALUE "FileDescription", "w1\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "w1\0"
+            VALUE "LegalCopyright", "Copyright © 2004\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "w1.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "ARUNOSOFT w1\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_GAME_NEWGAME         "I guess it does something"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

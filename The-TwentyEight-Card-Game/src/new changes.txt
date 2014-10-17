@@ -1,0 +1,13 @@
+These are the changes to Trump.exe from the cd written version.
+
+1.in "points map dialog" The display of points is not in a single static control but in two static controls(to prevent problems when font not found).
+
+*2.An additional check of wm_ncrbuttondown done in the getquote infinite loop.
+
+**3.An important thing of making buttondown=false in wm_rbuttondown
+inside the checks to prevent this event when buttondown
+
+4.The functions SetCapture(hw) used in wm_lbuttondown and GetCapture(),ReleaseCapture used in wm_lbuttonup
+
+
+****5. use POINT mp struct instead of LPPOINT mp sto pass to getcursorpos(&mp)

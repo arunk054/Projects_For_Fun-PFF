@@ -1,0 +1,5 @@
+
+1. Some issue with getPreds. Sometimes the right column is blank.
+
+2. Once a team gets allout, mark the corresponding predickets as NULLIFIED
+

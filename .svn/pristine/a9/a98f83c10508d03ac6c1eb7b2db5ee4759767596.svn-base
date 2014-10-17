@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<title>Predicket</title>
+<!-- other css themes are -->
+<!--  ui-lightness dot-luv excite-bike sunny flick smoothness humanity -->
+<!-- more at http://blog.jqueryui.com/2011/02/jquery-ui-1-8-10/ -->
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/CricFB.js"></script>
+<script type="text/javascript" src="js/InitialUI.js"></script>
+<script type="text/javascript" src="js/Actions.js"></script>
+
+<style>
+
+#global-container{
+}
+
+#logo-text {
+	font: bold 2em 'Trebuchet MS', 'Helvetica Neue', Arial, Sans-Serif;
+	letter-spacing: -4px;
+	color: #1980AF;
+}
+
+#slogan {
+	font-family: Georgia, 'Times New Roman', Times, serif;;
+	font-weight: bold;
+	font-size: .6em;
+	font-style: italic;
+	color: #999;
+	font-style: italic;
+	color: #999;
+	padding: 0px 0px 0px 1em
+}
+
+
+#right-header {
+	padding-left: 3em;
+	text-align: center;
+	color: #000000;
+}
+
+#right-header img {
+	width: 60px;
+	height: 60px;
+	vertical-align:middle;
+}
+
+#fb-login-button-div {
+	border: solid 2px;
+	border-color: #1980AF;
+	clear: both;
+	width: 60%;
+	margin-top: 3em;
+	margin-left: 12%;
+	line-height: 1em;
+	padding: 1em;
+	font-family: "Comic Sans MS";
+	
+	/*background: url('bg-images/welcome.png') repeat-x;*/
+}
+
+#points {
+	text-align:center;
+	padding: .5em 0em 0em 0em;
+	/*this is the width of the left pane*/
+	width: 60%;	
+	display:block;
+	float:left;
+}
+#links {
+	width: 40%;
+	padding: 0em 0em 0em 1em
+}
+#points-header {
+	padding: 0.1em 0em 0.1em 0em
+}
+
+#matches {
+	padding: 0.2em 1em 0 0;
+	overflow:auto;
+	height:360px;	
+	
+}
+
+
+/*#matches ul{
+	    list-style-type: none;
+	    font-family: 'Verdana', Serif;
+	    font-size:.8em;
+	}
+	
+	#matches li	{
+	text-align:center;
+	    border: 5px double;
+	    margin-bottom: 1.2em;
+	    -moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		height:4em;
+		padding: 0.5em .5em 0 .5em;
+		overflow:hidder;
+		
+	}
+	
+	#matches li:hover 	{
+		cursor:pointer;
+		border: 6px solid;	
+		opacity: 0.8;
+	}
+	
+	#matches li.odd{
+	     border-color: #6BB200;	     
+	     color: #000000;
+	     background:#EEFFBB;
+	}
+	
+	#matches li.even{
+		border-color: #00248E;	     
+	     color: #000000;
+	     background:#D5DDFE;
+	}*/
+	.matStatus {
+		font-size: 0.9em;
+		font-family: 'Times New Roman', Serif;
+		font-style:italic;
+		color:#000000;
+		margin-top: .3em;
+	}
+	#leftPane{
+		overflow:auto;	
+		width:60%;
+		float:left;
+	}
+	
+	.loading-matches {
+		padding: 8em 0em 0 8em; 
+	}
+</style>
+
+</head>
+
+<body>
+
+<script>
+$(document).ready(function(){
+$('#links a').button();
+});
+</script>
+
+<div id="global-container">
+<div id="points-header" class="ui-widget ui-widget-header">
+<span id="points"></span>
+<span id="links" ><a id="link1" href="">Link1<span class="ui-icon ui-icon-circle-triangle-s" style="float: right; margin-left: .1em;"></span>
+</a></span>
+</div>
+
+
+</div>
+
+</body>
+</html>

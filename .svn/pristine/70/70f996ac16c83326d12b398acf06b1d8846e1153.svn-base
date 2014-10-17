@@ -1,0 +1,93 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Some Twitter App</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="some.css" />
+	<script src="jquery-1.2.6.min.js" type="text/javascript"></script>
+	<script src="popup.js" type="text/javascript"></script>
+	<script type="text/javascript">
+			function updateInfo(s){
+					document.getElementById('update').innerHTML = s;
+			}
+			function install(){
+				window.location.href='install';
+			}
+			function resetButton() {
+				document.getElementById('install').disabled=false;
+			}
+		</script>
+</head>
+
+<body onload="resetButton();">
+
+  	<div id="header">							
+	<h1 id="logo-text"><a href="index.html" title="">Some Twitter App</a></h1>
+		<p id="slogan">An incentive based tweet system... </p>	
+	</div>
+<br>
+
+<div id = "featured">
+<h2 id="update">ERROR: Java Script not enabled!</h2>
+<br>
+For more details <a href='javascript:somePopup()' id = "button" class="more-link">click here</a>
+</div>
+
+<div id = "featured">
+
+
+   <table>
+      <tr>
+	  <td>
+        <td colspan="2" style="font-weight:bold;"><h3>Install the app to your twitter account:</h3></td>    
+		<td><input type="submit" id="install" value="Click Here" onClick="this.disabled=true;this.value='Please Wait...';updateInfo('Please wait while your request is being processed...');install();" class="submit"/></td>
+      </tr>
+    </table>
+
+
+</div>
+	<div id="popupContact">
+		<a id="popupContactClose">X</a>
+		<h1>Some Twitter App</h1>
+		<p id="contactArea">
+			It is for academic use only. The app simulates an incentive mechanism for tweets. Once installed, it will occasionally send some test tweets. Thats it!
+			<br/>
+			You can always uninstall the app by going to Settings -> Connections in your twitter account.
+			<h4>Thanks for your support.</h2>
+			<center><a href = "" id = "popupContactClose1">Close</a></center>
+			<br/>
+		</p>
+	</div>
+	<div id="backgroundPopup"></div>
+
+<%
+String  error = (String)session.getAttribute("TwitterError");
+session.removeAttribute("TwitterError");
+String regName = (String)session.getAttribute("regName");
+if (error != null) {
+%>
+	<script type="text/javascript">
+	updateInfo("<%=error%>");
+	</script>
+	
+<% }else if (regName != null) {
+	%>
+	<script type="text/javascript">
+	var s = "Hi <%=regName%>,<br>Thanks for installing the app to your twitter account."; 
+	updateInfo(s);
+	</script>
+<% }else{
+%>
+<script type="text/javascript">
+	updateInfo("Welcome to my app page. Thanks for visiting.");
+</script>
+<%	
+
+}
+%>  
+</body>
+</html>

@@ -1,0 +1,6 @@
+Note: All files(card bmps) hve 2 letter filenames
+Its significance is as follows
+1.The 1st/2nd character tells you card number
+(eg:1=A,2=2...J=11,Q=12,K=13)
+2.The 3rd character is the card type
+(eg:0=spade,1=clubs,2=hearts,3=diamonds)
