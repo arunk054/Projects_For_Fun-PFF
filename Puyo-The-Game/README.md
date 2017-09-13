@@ -1,4 +1,7 @@
-Puyo Puyo - The GameThis is a Tetris style game where instead of bricks, we have are small circular objects called puyos. The puyos fall as a pair and can be rotated using the arrow keys. The goal is to group puyos of similar color. The game is developed using Java programming language and Swing library was used for graphics.
+# puyo-puyo-game
+This is a Tetris style game where instead of bricks, we have are small circular objects called puyos. The puyos fall as a pair and can be rotated using the arrow keys. The goal is to group puyos of similar color. The game is developed using Java programming language and Swing library was used for graphics.
+
+[![View Demo](https://img.youtube.com/vi/S2d7W4YkXT4/0.jpg)](https://www.youtube.com/watch?v=S2d7W4YkXT4 "Demo")
 
 
 ==================HOW TO LAUNCH PUYO-PUYO THE GAME=========
@@ -16,8 +19,3 @@ Puyo Puyo - The GameThis is a Tetris style game where instead of bricks, we hav
 4)Use Esc key to pause the game at anytime
 5)The score is displayed on the right top corner of the screen
 6)The difficulty level is displayed on the top left corner of the screen
-
-
-
-DEMO: https://www.youtube.com/watch?v=S2d7W4YkXT4
-
